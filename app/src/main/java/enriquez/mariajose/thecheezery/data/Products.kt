@@ -32,7 +32,7 @@ val sweets = listOf(
 val salties = listOf(
     Product("Chicken crepes", 6F, R.drawable.chickencrepes, "Fine crepes stuffed with Alfredo chicken, spinach and mushrooms."),
     Product("Club Sandwich", 5F, R.drawable.clubsandwich, "A delicious sandwich served with french fries."),
-    Product("Panini", 4F, R.drawable.ic_panini, "Sandwich made with Italian bread served warmed by grilling."),
+    Product("Panini", 4F, R.drawable.hampanini, "Sandwich made with Italian bread served warmed by grilling."),
     Product("Philly cheese steak", 6F, R.drawable.phillycheesesteak, "Smothered in grilled onions, green peppers, mushrooms, and Provolone."),
     Product("Nachos", 7F, R.drawable.nachos, "Tortilla chips layered with beef and melted cheddar cheese. Served with fried beans, guacamole, pico de gallo, and sour topping.")
 )
