@@ -1,4 +1,4 @@
-package enriquez.mariajose.thecheezery.data
+package enriquez.mariajose.thecheezery.domain
 
 data class Product(val name: String = "",
                    val price: Float = 0F,
