@@ -3,6 +3,13 @@ package enriquez.mariajose.thecheezery.data
 import enriquez.mariajose.thecheezery.R
 import enriquez.mariajose.thecheezery.domain.Product
 
+val oreoMilkshake = Product(
+    "Oreo Milkshake",
+    7f,
+    R.drawable.oreomilkshake,
+    "Chocolate ice cream, and oreo cookies. Topped with whipped cream with cocoa and chocolate syrup.",
+)
+
 val coldDrinks =  listOf<Product>(
     Product(
         "Caramel Frap",
@@ -127,3 +134,13 @@ val salties = listOf(
         "Tortilla chips layered with beef and melted cheddar cheese. Served with fried beans, guacamole, pico de gallo, and sour topping."
     )
 )
+
+fun getProductsByCategory(category: String): List<Product> {
+    return when (category) {
+        "Cold Drinks" -> coldDrinks
+        "Hot Drinks" -> hotDrinks
+        "Sweets" -> sweets
+        "Salties" -> salties
+        else -> emptyList()
+    }
+}

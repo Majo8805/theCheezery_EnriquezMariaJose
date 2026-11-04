@@ -27,13 +27,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import enriquez.mariajose.thecheezery.R
 import enriquez.mariajose.thecheezery.ui.theme.Brighter_Pink
 import enriquez.mariajose.thecheezery.ui.theme.Pinky
 import enriquez.mariajose.thecheezery.ui.theme.Very_purple
 
 @Composable
-fun MenuScreen(innerPadding : PaddingValues) {
+fun MenuScreen(innerPadding : PaddingValues, navController: NavController) {
     Column(
         Modifier
             .fillMaxSize()
@@ -87,13 +89,13 @@ fun MenuScreen(innerPadding : PaddingValues) {
                     text = "Hot Drinks",
                     color = Color.White,
                     modifier = Modifier
-                        .clickable { }
+                        .clickable { navController.navigate("show_products/Hot Drinks") }
                 )
                 Text(
                     text = "Salties",
                     color = Color.White,
                     modifier = Modifier
-                        .clickable { }
+                        .clickable { navController.navigate("show_products/Salties") }
                 )
                 Text(
                     text = "Combos",
@@ -118,13 +120,13 @@ fun MenuScreen(innerPadding : PaddingValues) {
                     text = "Cold Drinks",
                     color = Color.White,
                     modifier = Modifier
-                        .clickable { }
+                        .clickable { navController.navigate("show_products/Cold Drinks") }
                 )
                 Text(
                     text = "Sweets",
                     color = Color.White,
                     modifier = Modifier
-                        .clickable { }
+                        .clickable { navController.navigate("show_products/Sweets") }
                 )
                 Text(
                     text = "Add new product",
@@ -141,5 +143,5 @@ fun MenuScreen(innerPadding : PaddingValues) {
 @Composable
 @Preview(showBackground = true)
 fun MenuScreenPreview() {
-    MenuScreen(PaddingValues(0.dp))
+    MenuScreen(PaddingValues(0.dp), rememberNavController())
 }
