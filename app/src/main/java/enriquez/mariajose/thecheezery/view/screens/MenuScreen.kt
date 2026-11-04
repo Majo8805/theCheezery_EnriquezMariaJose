@@ -35,14 +35,14 @@ import enriquez.mariajose.thecheezery.ui.theme.Pinky
 import enriquez.mariajose.thecheezery.ui.theme.Very_purple
 
 @Composable
-fun MenuScreen(innerPadding : PaddingValues, navController: NavController) {
+fun MenuScreen(innerPadding : PaddingValues, navController: NavController, onNavigateToCart: () -> Unit) {
     Column(
         Modifier
             .fillMaxSize()
             .padding(innerPadding)
     ) {
         IconButton(
-            onClick = {  },
+            onClick = { onNavigateToCart() },
             colors = IconButtonDefaults.iconButtonColors(
                 contentColor = Color.White,
                 containerColor = Pinky,
@@ -143,5 +143,5 @@ fun MenuScreen(innerPadding : PaddingValues, navController: NavController) {
 @Composable
 @Preview(showBackground = true)
 fun MenuScreenPreview() {
-    MenuScreen(PaddingValues(0.dp), rememberNavController())
+    MenuScreen(PaddingValues(0.dp), rememberNavController(), {})
 }

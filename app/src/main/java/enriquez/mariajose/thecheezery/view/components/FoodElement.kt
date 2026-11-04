@@ -35,7 +35,7 @@ import enriquez.mariajose.thecheezery.ui.theme.PurpleGrey40
 import enriquez.mariajose.thecheezery.ui.theme.Very_purple
 
 @Composable
-fun FoodComponent(product: Product) {
+fun FoodElement(product: Product, onAddToCart: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -87,7 +87,7 @@ fun FoodComponent(product: Product) {
         Spacer(modifier = Modifier.width(16.dp))
 
         FilledIconButton(
-            onClick = { },
+            onClick = onAddToCart,
             modifier = Modifier.size(40.dp),
             colors = IconButtonDefaults.filledIconButtonColors(
                 containerColor = Very_purple,
@@ -107,6 +107,6 @@ fun FoodComponent(product: Product) {
 
 @Composable
 @Preview(showBackground = true)
-fun FoodComponentPreview() {
-    FoodComponent(oreoMilkshake)
+fun FoodElementPreview() {
+    FoodElement(oreoMilkshake, {})
 }

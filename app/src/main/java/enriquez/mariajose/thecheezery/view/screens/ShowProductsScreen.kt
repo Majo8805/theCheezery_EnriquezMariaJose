@@ -18,15 +18,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import enriquez.mariajose.thecheezery.R
 import enriquez.mariajose.thecheezery.data.getProductsByCategory
-import enriquez.mariajose.thecheezery.domain.Product
 import enriquez.mariajose.thecheezery.ui.theme.Pinky
-import enriquez.mariajose.thecheezery.view.components.FoodComponent
+import enriquez.mariajose.thecheezery.view.components.FoodElement
+import enriquez.mariajose.thecheezery.viewModel.CartViewModel
 
 @Composable
 fun ShowProductsScreen(
     category: String,
+    viewModel: CartViewModel,
     innerPadding: PaddingValues
 ) {
     val productList = getProductsByCategory(category)
@@ -51,7 +53,10 @@ fun ShowProductsScreen(
             modifier = Modifier.fillMaxSize()
         ) {
             items(productList) { product ->
-                FoodComponent(product)
+                FoodElement(
+                    product = product,
+                    onAddToCart = { viewModel.addToCart(product) }
+                )
             }
         }
     }
@@ -60,6 +65,9 @@ fun ShowProductsScreen(
 @Composable
 @Preview
 fun ShowProductsScreenPreview() {
-    ShowProductsScreen("Cold Drinks", PaddingValues(0.dp)
+    ShowProductsScreen(
+        category = "Cold Drinks",
+        viewModel = viewModel(),
+        innerPadding = PaddingValues(0.dp)
     )
 }

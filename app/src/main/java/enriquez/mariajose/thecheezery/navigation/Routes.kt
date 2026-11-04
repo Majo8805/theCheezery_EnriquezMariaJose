@@ -10,3 +10,6 @@ object Login
 
 @Serializable
 object Menu
+
+@Serializable
+object Cart

@@ -13,6 +13,7 @@ import androidx.compose.foundation.text.input.TextObfuscationMode
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SecureTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -28,11 +29,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import enriquez.mariajose.thecheezery.R
 import enriquez.mariajose.thecheezery.ui.theme.Brighter_Pink
+import enriquez.mariajose.thecheezery.viewModel.LoginViewModel
 
 @Composable
-fun LoginScreen(innerPadding : PaddingValues, onNavigateToMenu: () -> Unit) {
+fun LoginScreen(innerPadding : PaddingValues, onNavigateToMenu: () -> Unit, viewModel: LoginViewModel) {
 
     var user by remember { mutableStateOf("") }
     var password = remember { TextFieldState() }
@@ -61,8 +64,21 @@ fun LoginScreen(innerPadding : PaddingValues, onNavigateToMenu: () -> Unit) {
             textObfuscationMode = TextObfuscationMode.RevealLastTyped,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
+
+        if (viewModel.errorMessage.isNotEmpty()) {
+            Text(
+                text = viewModel.errorMessage,
+                color = MaterialTheme.colorScheme.error,
+                modifier = Modifier.padding(bottom = 15.dp)
+            )
+        }
+
         Button(
-            onClick = {onNavigateToMenu()},
+            onClick = { viewModel.validateLogin(
+                email = user,
+                passwordText = password.text.toString(),
+                onSuccess = { onNavigateToMenu() }
+            ) },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Brighter_Pink,
                 contentColor = Color.White
@@ -76,5 +92,5 @@ fun LoginScreen(innerPadding : PaddingValues, onNavigateToMenu: () -> Unit) {
 @Composable
 @Preview(showBackground = true)
 fun LoginScreenPreview() {
-    LoginScreen(PaddingValues(0.dp),{})
+    LoginScreen(PaddingValues(0.dp),{}, viewModel())
 }
