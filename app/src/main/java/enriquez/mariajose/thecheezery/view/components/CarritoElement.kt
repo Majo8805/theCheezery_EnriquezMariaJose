@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import enriquez.mariajose.thecheezery.R
-import enriquez.mariajose.thecheezery.data.oreoMilkshake
+import enriquez.mariajose.thecheezery.model.data.oreoMilkshake
 import enriquez.mariajose.thecheezery.domain.Product
 import enriquez.mariajose.thecheezery.ui.theme.Very_purple
 

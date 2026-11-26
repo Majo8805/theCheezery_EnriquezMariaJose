@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import enriquez.mariajose.thecheezery.R
+import enriquez.mariajose.thecheezery.navigation.AddCombo
 import enriquez.mariajose.thecheezery.ui.theme.Brighter_Pink
 import enriquez.mariajose.thecheezery.ui.theme.Pinky
 import enriquez.mariajose.thecheezery.ui.theme.Very_purple
@@ -101,7 +102,7 @@ fun MenuScreen(innerPadding : PaddingValues, navController: NavController, onNav
                     text = "Combos",
                     color = Color.White,
                     modifier = Modifier
-                        .clickable { }
+                        .clickable { navController.navigate(AddCombo) }
                 )
             }
             Column(

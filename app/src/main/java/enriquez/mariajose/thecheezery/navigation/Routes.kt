@@ -13,3 +13,6 @@ object Menu
 
 @Serializable
 object Cart
+
+@Serializable
+object AddCombo

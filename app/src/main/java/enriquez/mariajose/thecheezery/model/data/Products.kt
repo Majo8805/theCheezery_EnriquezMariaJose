@@ -1,4 +1,4 @@
-package enriquez.mariajose.thecheezery.data
+package enriquez.mariajose.thecheezery.model.data
 
 import enriquez.mariajose.thecheezery.R
 import enriquez.mariajose.thecheezery.domain.Product
